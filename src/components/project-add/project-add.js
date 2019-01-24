@@ -3,7 +3,7 @@ import './project-add.css';
 
 const AddProjectTask = () => {
     return (
-      <div class="project-task-add">
+      <div className="project-task-add">
         <p>Start typing here to create  task...</p>
       </div>
     );

@@ -3,7 +3,7 @@ import './app-header.css';
 
 const Header = () => {
     return (
-      <div class="col-12 todo-header">
+      <div className="col-12 todo-header">
         <h1>Simple todo lists</h1>
         <h2>From ruby garage</h2>
       </div>

@@ -1,15 +1,23 @@
 import React from 'react';
 import './project-list';
 
-const ProjectTasks = () => {
+const ProjectTasks = ({todos}) => {
+
+  const elements = todos.map( (item) => {
+    const { id, label } = item;
+
     return (
-      <ul class="project-task-list list-unstyled">
-        <li>Buy a milk</li>
-        <li>Call Mam</li>
-        <li>Clear the room</li>
-        <li>Repair the DVD Player</li>
-      </ul>
+      <li key={id} className="list-group-item">
+        { label }
+      </li>
     );
+  });
+
+  return (
+    <ul className="project-task-list list-group">
+        { elements }
+    </ul>
+  );
 };
 
 export default ProjectTasks;
