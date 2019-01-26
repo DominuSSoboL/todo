@@ -1,3 +1,9 @@
-.project-title p {
+.project-title {
+    padding: 16px 0;
+
+    font-size: 19px;
+    line-height: 19px;
+
+    color: #fff;
     background-color: #4979b5;
 }

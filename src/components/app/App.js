@@ -11,6 +11,8 @@ export default class App extends Component {
   todos = [
     {label: 'Drink koffee', important: false, id: 1},
     {label: 'Bla bla bla', important: false, id: 2},
+    {label: 'Blo blo blo', important: false, id: 3},
+    {label: 'Bla bla bla', important: false, id: 2},
     {label: 'Blo blo blo', important: false, id: 3}
   ];
 
