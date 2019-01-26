@@ -3,7 +3,7 @@ import './project-title';
 
 const ProjectHeader = () => {
     return (
-      <div class="project-title">
+      <div className="project-title">
         <p>For Home</p>
       </div>
     );
