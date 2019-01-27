@@ -1,0 +1,44 @@
+/** List items style **/
+.itemWrapp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.itemWrapp span {
+    padding: 18px 0;
+}
+/** Check box span **/
+.itemWrapp span:first-child {
+    width: 8%;
+    padding-left: 40px;
+    height: 100%;
+    border-right: 1px solid #efdadf;
+}
+.itemWrapp span:first-child input:hover {
+}
+.end-list-btn {
+    transform: scale(1.7);
+    cursor: pointer;
+}
+
+/** Items text section **/
+.itemWrapp span:nth-child(2) {
+    width: 75%;
+    padding: 0 10px;
+
+    font-size: 20px;
+    text-align: left;
+    color: #999999;
+}
+
+/** Items button section **/
+.itemWrapp span:last-child {
+    width: 15%;
+    text-align: center;
+    border-left: 1px solid grey;
+}
+.btn-item-sm {
+    margin-left: 10px;
+    opacity: 0;
+}

@@ -12,8 +12,8 @@ export default class App extends Component {
     {label: 'Drink koffee', important: false, id: 1},
     {label: 'Bla bla bla', important: false, id: 2},
     {label: 'Blo blo blo', important: false, id: 3},
-    {label: 'Bla bla bla', important: false, id: 2},
-    {label: 'Blo blo blo', important: false, id: 3}
+    {label: 'Bla bla bla', important: false, id: 4},
+    {label: 'Blo blo blo', important: false, id: 5}
   ];
 
 
@@ -22,7 +22,7 @@ export default class App extends Component {
       <div className="container">
        <div className="row">
           <Header />
-          <div class="col-12 todo-project">            
+          <div className="col-12 todo-project">            
             <ProjectHeader />           
             <AddProjectTask />           
             <ProjectTasks todos={this.todos} />

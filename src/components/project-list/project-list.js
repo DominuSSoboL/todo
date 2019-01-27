@@ -1,5 +1,5 @@
 import React from 'react';
-import './project-list';
+import './project-list.css';
 import AddListItems from '../project-list-item';
 
 const ProjectTasks = ({todos}) => {
@@ -8,7 +8,7 @@ const ProjectTasks = ({todos}) => {
     const { id, ...itemProps } = item;
 
     return (
-      <li id={ id } className="list-group-item">
+      <li key={ id } className="list-group-item">
         <AddListItems { ...itemProps } />
       </li>
     );
