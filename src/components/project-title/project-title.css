@@ -9,12 +9,22 @@
     align-content: center;
     width: 100%;
 
-    padding: 16px 40px;
+    padding: 16px 0 16px 40px ;
     font-size: 19px;
     /* line-height: 19px; */
 
     color: #fff;
     background-color: #4979b5;
+}
+.project-title:hover {
+    cursor: pointer;
+}
+.project-title span:last-child {
+    opacity: 0;
+}
+.project-title:hover > span:last-child {
+    opacity: 1;
+    transition: 0.3s;
 }
 /**************************************************************
 *                                                             *
@@ -26,9 +36,9 @@
     height: 100%;
 }
 .project-title span:first-child i {
-    font-size: 20px;
+    font-size: 30px;
     line-height: 38px;
-    color: rgba(0,0,0,0.6);
+    color: rgba(0,0,0,0.5);
 }
 /**************************************************************
 *                                                             *
@@ -36,9 +46,10 @@
 *                                                             *
 **************************************************************/
 .project-title span:nth-child(2) {
-    width: 80%;
+    width: 85%;
     padding: 0 10px;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
     line-height: 38px;
     text-align: left;
     color: #fff;
@@ -49,10 +60,13 @@
 *                                                             *
 **************************************************************/
 .project-title span:last-child {
-    width: 15%;
-    text-align: right;
+    width: 10%;
+    text-align: center;
 }
-.project-title span:last-child button {
+.project-title span:last-child button:first-child {
+    padding: 0;
+}
+.project-title span:last-child button:not(:first-child) {
     position: relative;
     padding: 0;
     margin-left: 30px;
@@ -75,4 +89,8 @@
     font-size: 20px;
     line-height: 38px;
     color: rgba(255,255,255,0.6);
+}
+.project-title span:last-child button i:hover {
+    color: rgba(255,255,255,0.9);
+    transition: 0.3s;
 }

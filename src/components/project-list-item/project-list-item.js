@@ -16,12 +16,22 @@ const AddListItems = ({label}) => {
             </span>
 
             <span className="button-item-group">
+
                 <button type="button" 
-                        className="btn btn-outline-success btn-item-sm">1</button>
+                        className="btn btn-item-sm">
+                    <i className="icon-menu2"></i>
+                </button>
+
                 <button type="button" 
-                        className="btn btn-outline-success btn-item-sm">2</button>               
+                        className="btn btn-item-sm">
+                    <i className="icon-pencil"></i>
+                </button>
+
                 <button type="button" 
-                        className="btn btn-outline-success btn-item-sm">3</button>       
+                        className="btn btn-item-sm">
+                    <i className="icon-bin"></i>
+                </button>
+
             </span>
         </span>
     );

@@ -1,3 +1,26 @@
+/**************************************************************
+*                                                             *
+*                   GENERAL APP STYLE                         *
+*                                                             *
+**************************************************************/
+body {
+  position: relative;
+}
+footer.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-footer p i {
+  color: black;
+  font-size: 30px;
+}
+/**************************************************************
+*                                                             *
+*                       Font icons                            *
+*                                                             *
+**************************************************************/
 @font-face {
   font-family: 'icomoon';
   src:  url('fonts/icomoon.eot?t51364');

@@ -5,9 +5,10 @@
 **************************************************************/
 .itemWrapp {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+    padding: 0px 0px 0px 40px;
 }
 .itemWrapp span {
     padding: 18px 0;
@@ -18,9 +19,7 @@
 *                                                             *
 **************************************************************/
 .itemWrapp span:first-child {
-    width: 8%;
-    padding-left: 40px;
-    height: 100%;
+    width: 5%;
     border-right: 1px solid #efdadf;
 }
 .end-list-btn {
@@ -33,7 +32,7 @@
 *                                                             *
 **************************************************************/
 .itemWrapp span:nth-child(2) {
-    width: 75%;
+    width: 80%;
     padding: 0 10px;
     font-size: 20px;
     text-align: left;
@@ -45,11 +44,39 @@
 *                                                             *
 **************************************************************/
 .itemWrapp span:last-child {
-    width: 15%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 10%;
     border-left: 1px solid #e7ebea;
 }
 .btn-item-sm {
-    margin-left: 10px;
+    position: relative;
+    width: 20px;
+    padding: 0;
     opacity: 0;
+}
+.btn-item-sm i {
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.4);
+}
+.btn-item-sm i:hover {
+    color: rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
+.btn-item-sm:nth-child(2)::before,
+.btn-item-sm:last-child::before {
+    content: '';
+    clear: both;
+
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    height: 12px;
+
+    border-left: 2px solid rgba(0,0,0,0.2);
 }
