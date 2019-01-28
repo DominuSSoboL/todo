@@ -4,7 +4,16 @@ import './project-title.css';
 const ProjectHeader = () => {
     return (
       <div className="project-title">
-        <p><span><i className="glyphicon glyphicon-calendar"></i></span>  For Home</p>
+          <span><i className="icon-list"></i></span> 
+          <span>For Home</span> 
+          <span>
+            <button className="btn">
+              <i className="icon-pencil"></i>
+            </button>
+            <button className="btn">
+              <i className="icon-bin"></i>
+            </button>
+          </span>
       </div>
     );
 };

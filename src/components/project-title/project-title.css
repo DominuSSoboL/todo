@@ -1,9 +1,78 @@
+/**************************************************************
+*                                                             *
+*                      PROJECT TITLE                          *
+*                                                             *
+**************************************************************/
 .project-title {
-    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
 
+    padding: 16px 40px;
     font-size: 19px;
-    line-height: 19px;
+    /* line-height: 19px; */
 
     color: #fff;
     background-color: #4979b5;
+}
+/**************************************************************
+*                                                             *
+*                         CALENDART                           *
+*                                                             *
+**************************************************************/
+.project-title span:first-child {
+    width: 5%;
+    height: 100%;
+}
+.project-title span:first-child i {
+    font-size: 20px;
+    line-height: 38px;
+    color: rgba(0,0,0,0.6);
+}
+/**************************************************************
+*                                                             *
+*                           TITLE                             *
+*                                                             *
+**************************************************************/
+.project-title span:nth-child(2) {
+    width: 80%;
+    padding: 0 10px;
+    font-size: 20px;
+    line-height: 38px;
+    text-align: left;
+    color: #fff;
+}
+/**************************************************************
+*                                                             *
+*                          BUTTONS                            *
+*                                                             *
+**************************************************************/
+.project-title span:last-child {
+    width: 15%;
+    text-align: right;
+}
+.project-title span:last-child button {
+    position: relative;
+    padding: 0;
+    margin-left: 30px;
+}
+.project-title span:last-child button:last-child::before {
+    content: '';
+    clear: both;
+
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    height: 20px;
+
+    border-left: 2px solid rgba(255,255,255,0.3);
+}
+.project-title span:last-child button i {
+    font-size: 20px;
+    line-height: 38px;
+    color: rgba(255,255,255,0.6);
 }

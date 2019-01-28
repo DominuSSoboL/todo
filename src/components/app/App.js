@@ -3,7 +3,7 @@ import './app.css';
 
 import Header from '../app-header';
 import ProjectHeader from '../project-title';
-import AddProjectTask from '../project-add';
+import AddProjectTask from '../project-add-items';
 import ProjectTasks from '../project-list';
 
 export default class App extends Component {

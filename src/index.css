@@ -1,8 +1,12 @@
+/**************************************************************
+*                                                             *
+*                       GENERAL STYLE                         *
+*                                                             *
+**************************************************************/
 body {
  background:#ffcc00 url('background-app.jpg') no-repeat;
  background-size: cover;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
