@@ -8,7 +8,10 @@ const AddProjectTask = () => {
           <i className="icon-plus"></i>
         </span>
         <input type="text" placeholder="Start typing here to create  task..."></input>
-        <button className="btn">Add Task</button>
+        <span>
+          <button className="btn">Add Task</button>
+        </span>
+        
       </div>
     );
 };

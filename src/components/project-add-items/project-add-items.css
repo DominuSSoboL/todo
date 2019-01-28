@@ -50,8 +50,12 @@
 *                          BUTTON                             *
 *                                                             *
 **************************************************************/
-.project-task-add button {
+.project-task-add span:last-child {
     width: 11%;
+
+}
+.project-task-add button {
+    width: 83%;
     padding: 8px 0;
     font-size: 12px;
     font-weight: 700;

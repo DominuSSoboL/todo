@@ -70,6 +70,7 @@
     position: relative;
     padding: 0;
     margin-left: 30px;
+    margin-right: 13px;
 }
 .project-title span:last-child button:last-child::before {
     content: '';
