@@ -38,6 +38,9 @@
     text-align: left;
     color: #999999;
 }
+.itemWrapp span:nth-child(2).done {
+    text-decoration: line-through;
+}
 /**************************************************************
 *                                                             *
 *                   ITEMS BUTTON SECTION                      *

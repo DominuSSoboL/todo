@@ -8,14 +8,29 @@ import ProjectTasks from '../project-list';
 
 export default class App extends Component {
 
-  todos = [
-    {label: 'Выпить кофе', important: false, id: 1 },
-    {label: 'Тренеровка', important: false, id: 2 },
-    {label: 'Закончить сайт', important: false, id: 3 },
-    {label: 'Написать приложение Todo', important: false, id: 4 },
-    {label: 'Купить молока', important: false, id: 5 }
-  ];
+  state = {
+    todos: [
+      {label: 'Выпить кофе', important: false, id: 1 },
+      {label: 'Тренеровка', important: false, id: 2 },
+      {label: 'Закончить сайт', important: false, id: 3 },
+      {label: 'Написать приложение Todo', important: false, id: 4 },
+      {label: 'Купить молока', important: false, id: 5 }
+    ]
+  };
+  
+  deleteTask = (id) => {
+    this.setState(({ todos }) => {
+      const idx = todos.findIndex((el) => el.id === id );
+      
+      const before = todos.slice(0, idx);
+      const after = todos.slice(idx + 1);
 
+      const newTodos = [...before, ...after];
+      return {
+        todos: newTodos
+      };
+    });
+  };
 
   render() {
     return (
@@ -25,12 +40,13 @@ export default class App extends Component {
           <div className="col-12 todo-project">            
             <ProjectHeader />           
             <AddProjectTask />           
-            <ProjectTasks todos={this.todos} />
+            <ProjectTasks 
+              todos={this.state.todos} 
+              onDeleted={ this.deleteTask }/>
           </div>            
         </div>
       </div>
     );
   };
-
 
 };

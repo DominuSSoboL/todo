@@ -3,25 +3,42 @@ import './project-list-item.css';
 
 export default class AddListItems extends React.Component {
 
+    state = {
+        done: false,
+        important: false
+    }
+
+    onClickCheckBox = () => {
+        this.setState(({done}) => {
+            return {
+                done: !done
+            };
+        });
+    }
 
     render() {
 
-        const { label } = this.props;
+        const { label, onDeleted } = this.props;
+        const { done } = this.state;
+        let classNameDone = 'class';
 
-
+        if (done) {
+            classNameDone += ' done';
+        }
         return (
             <span className="itemWrapp">
                 <span>
-                    <input type="checkbox" className="end-list-btn"></input>
+                    <input type="checkbox"
+                           className="end-list-btn"
+                           onClick={ this.onClickCheckBox }>
+                    </input>
                 </span>
-                
     
-                <span  onClick={ () => {return console.log(label)} }>
+                <span className={ classNameDone }>
                     { label }
                 </span>
     
-                <span className="button-item-group">
-    
+                <span className="button-item-group">    
                     <button type="button" 
                             className="btn btn-item-sm">
                         <i className="icon-menu2"></i>
@@ -33,10 +50,10 @@ export default class AddListItems extends React.Component {
                     </button>
     
                     <button type="button" 
-                            className="btn btn-item-sm">
+                            className="btn btn-item-sm"
+                            onClick={ onDeleted }>
                         <i className="icon-bin"></i>
-                    </button>
-    
+                    </button>    
                 </span>
 
             </span>
