@@ -14,7 +14,9 @@ export default class App extends Component {
     todos: [
       this.createTodoListTask('Drink coffee'),
       this.createTodoListTask('Make Awesome App'),
-      this.createTodoListTask('Have a luch')
+      this.createTodoListTask('Have a luch'),
+      this.createTodoListTask('Call Dmitriy'),
+      this.createTodoListTask('Learn JS')
     ]
   };
   
