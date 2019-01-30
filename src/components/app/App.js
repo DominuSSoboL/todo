@@ -36,7 +36,21 @@ export default class App extends Component {
   changeLabelTask = (id) => {
     this.setState(({ todos }) => {
       const idc = todos.findIndex((el) => el.id === id );
-      console.log(`Change label for ${ idc }`);
+      
+      const newItem = {
+        label: 'Измененная задача',
+        important: false,
+        id: todos.id
+      };
+      const newTodos = [
+        ...todos.slice(0, idc),
+        newItem,
+        ...todos.slice(idc + 1)
+      ];
+
+      return {
+        todos: newTodos
+      };
     });   
   };
   
@@ -52,7 +66,6 @@ export default class App extends Component {
         ...todos, 
         newTask
       ];
-
       return {
         todos: newTodos
       }
