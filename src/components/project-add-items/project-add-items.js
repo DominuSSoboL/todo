@@ -11,7 +11,7 @@ const AddProjectTask = ({addTask}) => {
         <span>
           <button 
             className="btn"
-            onClick={ () => addTask('Новая задача добавленная через функцию') }>
+            onClick={ () => addTask('New task added') }>
               Add Task
           </button>
         </span>

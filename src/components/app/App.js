@@ -12,14 +12,20 @@ export default class App extends Component {
 
   state = {
     todos: [
-      {label: 'Выпить кофе', important: false, id: 1 },
-      {label: 'Тренеровка', important: false, id: 2 },
-      {label: 'Закончить сайт', important: false, id: 3 },
-      {label: 'Написать приложение Todo', important: false, id: 4 },
-      {label: 'Купить молока', important: false, id: 5 }
+      this.createTodoListTask('Drink coffee'),
+      this.createTodoListTask('Make Awesome App'),
+      this.createTodoListTask('Have a luch')
     ]
   };
   
+  createTodoListTask(label) {
+    return {
+      label,
+      import: false,
+      id: this.maxId++
+    };
+  };
+
   deleteTask = (id) => {
     this.setState(({ todos }) => {
       const idx = todos.findIndex((el) => el.id === id );      
@@ -38,7 +44,7 @@ export default class App extends Component {
       const idc = todos.findIndex((el) => el.id === id );
       
       const newItem = {
-        label: 'Измененная задача',
+        label: 'Changed task',
         important: false,
         id: todos.id
       };
@@ -55,11 +61,7 @@ export default class App extends Component {
   };
   
   addTask = (text) => {
-    const newTask = {
-      label: text,
-      import: false,
-      id: this.maxId++
-    };
+    const newTask = this.createTodoListTask(text);
 
     this.setState(({ todos }) => {
       const newTodos = [

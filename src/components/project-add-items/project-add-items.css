@@ -34,7 +34,7 @@
 *                                                             *
 **************************************************************/
 .project-task-add input {
-    width: 83%;
+    width: 73%;
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 400;
@@ -51,8 +51,7 @@
 *                                                             *
 **************************************************************/
 .project-task-add span:last-child {
-    width: 11%;
-
+    width: 21%;
 }
 .project-task-add button {
     width: 83%;
