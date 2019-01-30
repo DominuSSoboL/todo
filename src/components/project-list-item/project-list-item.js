@@ -18,7 +18,7 @@ export default class AddListItems extends React.Component {
 
     render() {
 
-        const { label, onDeleted } = this.props;
+        const { label, onDeleted, changeLabelTask } = this.props;
         const { done } = this.state;
         let classNameDone = 'class';
 
@@ -45,7 +45,8 @@ export default class AddListItems extends React.Component {
                     </button>
     
                     <button type="button" 
-                            className="btn btn-item-sm">
+                            className="btn btn-item-sm"
+                            onClick={ changeLabelTask }>
                         <i className="icon-pencil"></i>
                     </button>
     

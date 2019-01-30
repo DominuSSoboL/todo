@@ -20,18 +20,22 @@ export default class App extends Component {
   
   deleteTask = (id) => {
     this.setState(({ todos }) => {
-      const idx = todos.findIndex((el) => el.id === id );
-      
-      const before = todos.slice(0, idx);
-      const after = todos.slice(idx + 1);
-
-      const newTodos = [...before, ...after];
+      const idx = todos.findIndex((el) => el.id === id );      
+      const newTodos = [
+        ...todos.slice(0, idx), 
+        ...todos.slice(idx + 1)
+      ];
       return {
         todos: newTodos
       };
     });
   };
-
+  changeLabelTask = (id) => {
+    this.setState(({ todos }) => {
+      const idc = todos.findIndex((el) => el.id === id );
+      console.log(`Change label for ${ idc }`);
+    });   
+  };
   render() {
     return (
       <div className="container">
@@ -42,7 +46,8 @@ export default class App extends Component {
             <AddProjectTask />           
             <ProjectTasks 
               todos={this.state.todos} 
-              onDeleted={ this.deleteTask }/>
+              onDeleted={ this.deleteTask }
+              changeLabelTask={ this.changeLabelTask }/>
           </div>            
         </div>
       </div>

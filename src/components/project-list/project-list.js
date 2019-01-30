@@ -3,7 +3,7 @@ import './project-list.css';
 import AddListItems from '../project-list-item';
 
 
-const ProjectTasks = ({todos, onDeleted}) => {
+const ProjectTasks = ({todos, onDeleted, changeLabelTask}) => {
 
   const elements = todos.map((item) => {
     const { id, ...itemProps } = item;
@@ -13,7 +13,8 @@ const ProjectTasks = ({todos, onDeleted}) => {
           className="list-group-item">
         <AddListItems 
           { ...itemProps } 
-          onDeleted={ () => onDeleted(id) }/>
+          onDeleted={ () => onDeleted(id) } 
+          changeLabelTask={ () => changeLabelTask(id) }/>
       </li>
     );
   });
