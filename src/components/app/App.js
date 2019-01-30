@@ -8,6 +8,8 @@ import ProjectTasks from '../project-list';
 
 export default class App extends Component {
 
+  maxId = 100;
+
   state = {
     todos: [
       {label: 'Выпить кофе', important: false, id: 1 },
@@ -30,12 +32,33 @@ export default class App extends Component {
       };
     });
   };
+
   changeLabelTask = (id) => {
     this.setState(({ todos }) => {
       const idc = todos.findIndex((el) => el.id === id );
       console.log(`Change label for ${ idc }`);
     });   
   };
+  
+  addTask = (text) => {
+    const newTask = {
+      label: text,
+      import: false,
+      id: this.maxId++
+    };
+
+    this.setState(({ todos }) => {
+      const newTodos = [
+        ...todos, 
+        newTask
+      ];
+
+      return {
+        todos: newTodos
+      }
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -43,7 +66,8 @@ export default class App extends Component {
           <Header />
           <div className="col-12 todo-project">            
             <ProjectHeader />           
-            <AddProjectTask />           
+            <AddProjectTask 
+              addTask={ this.addTask }/>           
             <ProjectTasks 
               todos={this.state.todos} 
               onDeleted={ this.deleteTask }

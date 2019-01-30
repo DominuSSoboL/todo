@@ -1,7 +1,7 @@
 import React from 'react';
 import './project-add-items.css';
 
-const AddProjectTask = () => {
+const AddProjectTask = ({addTask}) => {
     return (
       <div className="project-task-add">
         <span>
@@ -9,7 +9,11 @@ const AddProjectTask = () => {
         </span>
         <input type="text" placeholder="Start typing here to create  task..."></input>
         <span>
-          <button className="btn">Add Task</button>
+          <button 
+            className="btn"
+            onClick={ () => addTask('Новая задача добавленная через функцию') }>
+              Add Task
+          </button>
         </span>
         
       </div>
