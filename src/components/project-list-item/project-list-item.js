@@ -3,23 +3,10 @@ import './project-list-item.css';
 
 export default class AddListItems extends React.Component {
 
-    state = {
-        done: false,
-        important: false
-    };
-
-    onClickCheckBox = () => {
-        this.setState(({done}) => {
-            return {
-                done: !done
-            };
-        });
-    };
-
     render() {
 
-        const { label, onDeleted, changeLabelTask } = this.props;
-        const { done } = this.state;
+        const { label, onDeleted, changeLabelTask, onToggleMark, done } = this.props;
+
         let classNameDone = 'class';
 
         if (done) {
@@ -30,7 +17,7 @@ export default class AddListItems extends React.Component {
                 <span>
                     <input type="checkbox"
                            className="end-list-btn"
-                           onClick={ this.onClickCheckBox }>
+                           onClick={ onToggleMark }>
                     </input>
                 </span>
     

@@ -24,7 +24,8 @@ export default class App extends Component {
     return {
       label,
       import: false,
-      id: this.maxId++
+      id: this.maxId++,
+      done: false
     };
   };
 
@@ -43,22 +44,20 @@ export default class App extends Component {
 
   changeLabelTask = (id) => {
     this.setState(({ todos }) => {
-      const idc = todos.findIndex((el) => el.id === id );
-      
+      const idx = todos.findIndex((el) => el.id === id );
       const newItem = {
         label: 'Changed task',
         important: false,
-        id: todos.id
+        id: id
       };
       const newTodos = [
-        ...todos.slice(0, idc),
+        ...todos.slice(0, idx),
         newItem,
-        ...todos.slice(idc + 1)
+        ...todos.slice(idx + 1)
       ];
-
       return {
         todos: newTodos
-      };
+      };      
     });   
   };
   
@@ -76,6 +75,23 @@ export default class App extends Component {
     });
   };
 
+  onToggleMark = (id) => {
+    this.setState(({ todos }) => {
+      const idx = todos.findIndex((el) => el.id === id );
+      const oldItem = todos[idx];
+      const newItem = {...oldItem, done: !oldItem.done };
+
+      const newTodos = [
+        ...todos.slice(0, idx),
+        newItem,
+        ...todos.slice(idx + 1)
+      ];
+      return{
+        todos: newTodos
+      };
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -88,7 +104,8 @@ export default class App extends Component {
             <ProjectTasks 
               todos={this.state.todos} 
               onDeleted={ this.deleteTask }
-              changeLabelTask={ this.changeLabelTask }/>
+              changeLabelTask={ this.changeLabelTask }
+              onToggleMark={ this.onToggleMark }/>
           </div>            
         </div>
       </div>

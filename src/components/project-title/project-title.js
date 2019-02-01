@@ -9,7 +9,6 @@ export default class ProjectHeader extends Component {
 
   chengetitle = () => {
     this.setState(({ title }) => {
-
       return {
         title: 'New title!'
       };
