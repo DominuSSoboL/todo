@@ -1,23 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './project-add-items.css';
 
-const AddProjectTask = ({addTask}) => {
+export default class AddProjectTask extends Component {
+
+  state = {
+    label: ''
+  };
+
+  onLabelChange = (e) => {
+    this.setState({
+      label: e.target.value
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTask(this.state.label);
+    this.setState({
+      label: ''
+    });
+  };
+
+  render() {
     return (
-      <div className="project-task-add">
+      <form className="project-task-add"
+            onSubmit={this.onSubmit}>
         <span>
           <i className="icon-plus"></i>
         </span>
-        <input type="text" placeholder="Start typing here to create  task..."></input>
+        <input type="text"
+               className="form-control"
+               onChange={this.onLabelChange}
+               placeholder="Start typing here to create  task..." 
+               value={this.state.label}/>
         <span>
           <button 
-            className="btn"
-            onClick={ () => addTask('New task added') }>
+            className="btn">
               Add Task
           </button>
         </span>
         
-      </div>
+      </form>
     );
+  };
 };
-
-export default AddProjectTask;
