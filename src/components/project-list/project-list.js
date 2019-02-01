@@ -14,8 +14,8 @@ const ProjectTasks = ({todos, onDeleted, changeLabelTask, onToggleMark}) => {
         <AddListItems 
           { ...itemProps } 
           onDeleted={ () => onDeleted(id) } 
-          changeLabelTask={ () => changeLabelTask(id) } 
-          onToggleMark={ () => onToggleMark(id) }/>
+          changeLabelTask={ (a) => changeLabelTask(id, a) } 
+          onToggleMark={ () => onToggleMark(id) } />
       </li>
     );
   });

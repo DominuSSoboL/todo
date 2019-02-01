@@ -31,22 +31,78 @@
 *                    ITEMS TEXT SECTION                       *
 *                                                             *
 **************************************************************/
-.itemWrapp span:nth-child(2) {
+.itemWrapp span.items-label {
     width: 70%;
     padding: 0 10px;
     font-size: 20px;
     text-align: left;
     color: #999999;
 }
-.itemWrapp span:nth-child(2).done {
+.itemWrapp span.items-label.items-label-hidden {
+    display: none;
+}
+.itemWrapp span.items-label.done {
     text-decoration: line-through;
+}
+/**************************************************************
+*                                                             *
+*                   ITEMS INPUT SECTION                       *
+*                                                             *
+**************************************************************/
+/** Label **/
+.itemWrapp span.cange-label {
+    width: 70%;
+    display: none;
+}
+
+/** Form section **/
+.itemWrapp span.cange-label.cange-label-active {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+/** Form **/
+.cange-label-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/** Input **/
+.itemWrapp span.cange-label input {
+    
+    width: 80%;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 400;
+    outline: none;
+}
+.itemWrapp span.cange-label input:hover,
+.itemWrapp span.cange-label input:active {
+    outline: none;
+}
+/** Button **/
+.itemWrapp span.cange-label button {
+    width: 20%;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #fff;
+    border: 1px solid #447557;
+    border-radius: 0 2px 2px 0;
+    background-color: #6ca384;
+}
+.itemWrapp span.cange-label button:hover,
+.itemWrapp span.cange-label button:active {
+    outline: none;
 }
 /**************************************************************
 *                                                             *
 *                   ITEMS BUTTON SECTION                      *
 *                                                             *
 **************************************************************/
-.itemWrapp span:last-child {
+.itemWrapp span.button-item-group {
     display: flex;
     align-items: center;
     justify-content: space-around;

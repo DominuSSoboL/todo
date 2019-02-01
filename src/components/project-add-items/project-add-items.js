@@ -7,7 +7,7 @@ export default class AddProjectTask extends Component {
     label: ''
   };
 
-  onLabelChange = (e) => {
+  onLabelInputChange = (e) => {
     this.setState({
       label: e.target.value
     });
@@ -30,7 +30,7 @@ export default class AddProjectTask extends Component {
         </span>
         <input type="text"
                className="form-control"
-               onChange={this.onLabelChange}
+               onChange={this.onLabelInputChange}
                placeholder="Start typing here to create  task..." 
                value={this.state.label}/>
         <span>

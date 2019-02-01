@@ -42,19 +42,22 @@ export default class App extends Component {
     });
   };
 
-  changeLabelTask = (id) => {
+  changeLabelTask = (id, a) => {
     this.setState(({ todos }) => {
       const idx = todos.findIndex((el) => el.id === id );
+
       const newItem = {
         label: 'Changed task',
         important: false,
         id: id
       };
+
       const newTodos = [
         ...todos.slice(0, idx),
         newItem,
         ...todos.slice(idx + 1)
       ];
+      console.log(a);
       return {
         todos: newTodos
       };      

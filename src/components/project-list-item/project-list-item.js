@@ -3,12 +3,26 @@ import './project-list-item.css';
 
 export default class AddListItems extends React.Component {
 
+
+    state = {
+        label: ''
+    };
+
+    taskLabelChange = (e) => {
+        this.setState({
+          label: e.target.value
+        });
+    };
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.changeLabelTask(this.state.label);
+    };
+
     render() {
 
         const { label, onDeleted, changeLabelTask, onToggleMark, done } = this.props;
-
-        let classNameDone = 'class';
-
+        let classNameDone = 'items-label items-label-hidden';
         if (done) {
             classNameDone += ' done';
         }
@@ -23,6 +37,18 @@ export default class AddListItems extends React.Component {
     
                 <span className={ classNameDone }>
                     { label }
+                </span>
+
+                <span className="cange-label cange-label-active">
+                    <form className="cange-label-add"
+                          onSubmit={this.onSubmit}>
+                        <input type="text"
+                               className="cange-label-form-control"
+                               onChange={this.taskLabelChange}
+                               placeholder="Write a new task" 
+                               />
+                            <button className="btn">CHANGE</button>
+                    </form>
                 </span>
     
                 <span className="button-item-group">    
