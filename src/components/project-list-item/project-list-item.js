@@ -6,7 +6,7 @@ export default class AddListItems extends React.Component {
     state = {
         done: false,
         important: false
-    }
+    };
 
     onClickCheckBox = () => {
         this.setState(({done}) => {
@@ -14,7 +14,7 @@ export default class AddListItems extends React.Component {
                 done: !done
             };
         });
-    }
+    };
 
     render() {
 
