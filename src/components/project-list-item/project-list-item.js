@@ -13,17 +13,19 @@ export default class AddListItems extends React.Component {
           label: e.target.value
         });
     };
-
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.changeLabelTask(this.state.label);
+        this.props.openChangeTask(this.state.label);
+        this.setState({
+            label: ''
+        });
     };
 
     render() {
 
         const { label, 
                 onDeleted, 
-                changeLabelTask, 
+                openChangeTask, 
                 onToggleMark, 
                 done,
                 cangeLabelActive,
@@ -52,7 +54,7 @@ export default class AddListItems extends React.Component {
                 <span className={ classNameChange }>
                 
                     <form className="cange-label-add"
-                          onSubmit={this.onSubmit}>
+                          onSubmit={ this.onSubmit }>
                         <input type="text"
                                className="cange-label-form-control"
                                onChange={this.taskLabelChange}
@@ -70,7 +72,7 @@ export default class AddListItems extends React.Component {
     
                     <button type="button" 
                             className="btn btn-item-sm"
-                            onClick={ changeLabelTask }>
+                            onClick={ openChangeTask }>
                         <i className={ classNameIconChange }></i>
                     </button>
     

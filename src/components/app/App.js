@@ -20,6 +20,17 @@ export default class App extends Component {
     ]
   };
   
+  taskLabelChange = (e) => {
+    this.setState({
+      label: e.target.value
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.changeLabelTask(this.state.label);
+  };
+
   createTodoListTask(label) {
     return {
       label,
@@ -44,7 +55,7 @@ export default class App extends Component {
     });
   };
 
-  changeLabelTask = (id) => {
+  openChangeTask = (id) => {
     this.setState(({ todos }) => {
       const idx = todos.findIndex((el) => el.id === id );
       const oldItem = todos[idx];
@@ -104,7 +115,7 @@ export default class App extends Component {
             <ProjectTasks 
               todos={this.state.todos} 
               onDeleted={ this.deleteTask }
-              changeLabelTask={ this.changeLabelTask }
+              openChangeTask={ this.openChangeTask }
               onToggleMark={ this.onToggleMark }/>
           </div>            
         </div>
