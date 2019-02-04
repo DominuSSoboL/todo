@@ -25,7 +25,9 @@ export default class App extends Component {
       label,
       import: false,
       id: this.maxId++,
-      done: false
+      done: false,
+      cangeLabelActive: false,
+      hoverLabel: false
     };
   };
 
@@ -42,26 +44,21 @@ export default class App extends Component {
     });
   };
 
-  changeLabelTask = (id, a) => {
+  changeLabelTask = (id) => {
     this.setState(({ todos }) => {
       const idx = todos.findIndex((el) => el.id === id );
-
-      const newItem = {
-        label: 'Changed task',
-        important: false,
-        id: id
-      };
+      const oldItem = todos[idx];
+      const newItem = {...oldItem, cangeLabelActive: !oldItem.cangeLabelActive, hoverLabel: !oldItem.hoverLabel };
 
       const newTodos = [
         ...todos.slice(0, idx),
         newItem,
         ...todos.slice(idx + 1)
       ];
-      console.log(a);
-      return {
+      return{
         todos: newTodos
-      };      
-    });   
+      };
+    });  
   };
   
   addTask = (text) => {

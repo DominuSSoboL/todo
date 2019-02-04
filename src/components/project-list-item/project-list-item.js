@@ -21,25 +21,36 @@ export default class AddListItems extends React.Component {
 
     render() {
 
-        const { label, onDeleted, changeLabelTask, onToggleMark, done } = this.props;
-        let classNameDone = 'items-label items-label-hidden';
-        if (done) {
-            classNameDone += ' done';
-        }
+        const { label, 
+                onDeleted, 
+                changeLabelTask, 
+                onToggleMark, 
+                done,
+                cangeLabelActive,
+                hoverLabel } = this.props;
+
+        let classNameDone = 'items-label';
+        let classNameChange = 'cange-label';
+        let classNameIconChange = 'icon-pencil';
+
+        if (done) { classNameDone += ' done'; }
+        if (cangeLabelActive) { classNameChange += ' cange-label-active';classNameIconChange = 'icon-cross'; }
+        if (hoverLabel) { classNameDone += ' items-label-hidden'; }
+
         return (
             <span className="itemWrapp">
                 <span>
                     <input type="checkbox"
                            className="end-list-btn"
-                           onClick={ onToggleMark }>
-                    </input>
+                           onClick={ onToggleMark } />
                 </span>
     
                 <span className={ classNameDone }>
                     { label }
                 </span>
 
-                <span className="cange-label cange-label-active">
+                <span className={ classNameChange }>
+                
                     <form className="cange-label-add"
                           onSubmit={this.onSubmit}>
                         <input type="text"
@@ -60,7 +71,7 @@ export default class AddListItems extends React.Component {
                     <button type="button" 
                             className="btn btn-item-sm"
                             onClick={ changeLabelTask }>
-                        <i className="icon-pencil"></i>
+                        <i className={ classNameIconChange }></i>
                     </button>
     
                     <button type="button" 

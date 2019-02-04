@@ -38,9 +38,7 @@
     text-align: left;
     color: #999999;
 }
-.itemWrapp span.items-label.items-label-hidden {
-    display: none;
-}
+
 .itemWrapp span.items-label.done {
     text-decoration: line-through;
 }
@@ -49,6 +47,7 @@
 *                   ITEMS INPUT SECTION                       *
 *                                                             *
 **************************************************************/
+
 /** Label **/
 .itemWrapp span.cange-label {
     width: 70%;
@@ -96,6 +95,13 @@
 .itemWrapp span.cange-label button:hover,
 .itemWrapp span.cange-label button:active {
     outline: none;
+}
+/** Show input form **/
+.itemWrapp span.items-label.items-label-hidden {
+    display: none;
+}
+.cange-label-active {
+    display: block;
 }
 /**************************************************************
 *                                                             *
