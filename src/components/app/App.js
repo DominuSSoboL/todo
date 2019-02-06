@@ -9,7 +9,7 @@ import ProjectTasks from '../project-list';
 export default class App extends Component {
 
   maxId = 100;
-
+  taskID = '';
   state = {
     todos: [
       this.createTodoListTask('Drink coffee'),
@@ -55,8 +55,10 @@ export default class App extends Component {
     });
   };
 
-  openChangeTask = (id) => {
+  openChangeTask = (id, text) => {
+    console.log(text);
     this.setState(({ todos }) => {
+
       const idx = todos.findIndex((el) => el.id === id );
       const oldItem = todos[idx];
       const newItem = {...oldItem, cangeLabelActive: !oldItem.cangeLabelActive, hoverLabel: !oldItem.hoverLabel };
@@ -66,10 +68,12 @@ export default class App extends Component {
         newItem,
         ...todos.slice(idx + 1)
       ];
+
       return{
         todos: newTodos
       };
-    });  
+
+    });
   };
   
   addTask = (text) => {

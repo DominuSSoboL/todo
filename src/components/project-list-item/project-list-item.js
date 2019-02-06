@@ -23,68 +23,7 @@ export default class AddListItems extends React.Component {
 
     render() {
 
-        const { label, 
-                onDeleted, 
-                openChangeTask, 
-                onToggleMark, 
-                done,
-                cangeLabelActive,
-                hoverLabel } = this.props;
-
-        let classNameDone = 'items-label';
-        let classNameChange = 'cange-label';
-        let classNameIconChange = 'icon-pencil';
-
-        if (done) { classNameDone += ' done'; }
-        if (cangeLabelActive) { classNameChange += ' cange-label-active';classNameIconChange = 'icon-cross'; }
-        if (hoverLabel) { classNameDone += ' items-label-hidden'; }
-
-        return (
-            <span className="itemWrapp">
-                <span>
-                    <input type="checkbox"
-                           className="end-list-btn"
-                           onClick={ onToggleMark } />
-                </span>
-    
-                <span className={ classNameDone }>
-                    { label }
-                </span>
-
-                <span className={ classNameChange }>
-                
-                    <form className="cange-label-add"
-                          onSubmit={ this.onSubmit }>
-                        <input type="text"
-                               className="cange-label-form-control"
-                               onChange={this.taskLabelChange}
-                               placeholder="Write a new task" 
-                               />
-                            <button className="btn">CHANGE</button>
-                    </form>
-                </span>
-    
-                <span className="button-item-group">    
-                    <button type="button" 
-                            className="btn btn-item-sm">
-                        <i className="icon-menu2"></i>
-                    </button>
-    
-                    <button type="button" 
-                            className="btn btn-item-sm"
-                            onClick={ openChangeTask }>
-                        <i className={ classNameIconChange }></i>
-                    </button>
-    
-                    <button type="button" 
-                            className="btn btn-item-sm"
-                            onClick={ onDeleted }>
-                        <i className="icon-bin"></i>
-                    </button>    
-                </span>
-
-            </span>
-        );
+        
     };
 
 };
