@@ -5,7 +5,7 @@ export default class AddListItems extends React.Component {
 
 
     state = {
-        label: ''
+        label: this.props.label
     };
 
     taskLabelChange = (e) => {
@@ -17,7 +17,7 @@ export default class AddListItems extends React.Component {
         e.preventDefault();
         this.props.setNewLabelTask(this.state.label);
         this.setState({
-            label: ''
+            label: this.state.label
         });
     };
 
@@ -57,8 +57,8 @@ export default class AddListItems extends React.Component {
                         <input type="text"
                                className="cange-label-form-control"
                                onChange={this.taskLabelChange}
-                               placeholder="Write a new task"
-                               value={this.state.label}
+                               placeholder={ label }
+                               value={ this.state.label }
                                />
                             <button className="btn">CHANGE</button>
                     </form>
