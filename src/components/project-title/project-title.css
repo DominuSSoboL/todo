@@ -54,6 +54,15 @@
     text-align: left;
     color: #fff;
 }
+.change-form {
+    display: none;
+}
+.change-form-active {
+    display: block;
+}
+.title-hidden {
+    display: none;
+}
 /**************************************************************
 *                                                             *
 *                          BUTTONS                            *

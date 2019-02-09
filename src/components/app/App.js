@@ -12,11 +12,6 @@ export default class App extends Component {
   labelChangeIdx = '';
   state = {
     todos: [
-      this.createTodoListTask('Drink coffee'),
-      this.createTodoListTask('Make Awesome App'),
-      this.createTodoListTask('Have a luch'),
-      this.createTodoListTask('Call Dmitriy'),
-      this.createTodoListTask('Learn JS')
     ]
   };
   
@@ -142,6 +137,7 @@ export default class App extends Component {
       <div className="container">
        <div className="row">
           <Header />
+
           <div className="col-12 todo-project">            
             <ProjectHeader />           
             <AddProjectTask 
@@ -152,8 +148,12 @@ export default class App extends Component {
               setNewLabelTask={ this.setNewLabelTask }
               openChangeTask={ this.openChangeTask }
               onToggleMark={ this.onToggleMark }/>
-          </div>            
-        </div>
+          </div> 
+
+          <div className="add-project-section">
+            <button classNmae="btn"><i className=""></i>Add TODO List</button>
+          </div>
+        </div>        
       </div>
     );
   };
