@@ -12,7 +12,7 @@ export default class App extends Component {
   taskID = '';
   state = {
     todos: [
-      this.createTodoListTask('Drink coffee'),
+      this.createTodoListTask('DARK coffee'),
       this.createTodoListTask('Make Awesome App'),
       this.createTodoListTask('Have a luch'),
       this.createTodoListTask('Call Dmitriy'),
