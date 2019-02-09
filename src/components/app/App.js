@@ -111,8 +111,8 @@ export default class App extends Component {
 
     this.setState(({ todos }) => {
       const newTodos = [
-        ...todos, 
-        newTask
+        newTask,
+        ...todos 
       ];
       return {
         todos: newTodos
