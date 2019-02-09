@@ -3,7 +3,7 @@ import './project-list.css';
 import AddListItems from '../project-list-item';
 
 
-const ProjectTasks = ({todos, onDeleted, openChangeTask, onToggleMark}) => {
+const ProjectTasks = ({todos, onDeleted, openChangeTask, onToggleMark, setNewLabelTask}) => {
 
   const elements = todos.map((item) => {
     const { id, ...itemProps } = item;
@@ -14,7 +14,8 @@ const ProjectTasks = ({todos, onDeleted, openChangeTask, onToggleMark}) => {
         <AddListItems 
           { ...itemProps } 
           onDeleted={ () => onDeleted(id) } 
-          openChangeTask={ (a) => openChangeTask(id) } 
+          setNewLabelTask={(text) => setNewLabelTask(text) }
+          openChangeTask={ () => openChangeTask(id) } 
           onToggleMark={ () => onToggleMark(id) } />
       </li>
     );

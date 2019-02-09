@@ -15,7 +15,7 @@ export default class AddListItems extends React.Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.openChangeTask(this.state.label);
+        this.props.setNewLabelTask(this.state.label);
         this.setState({
             label: ''
         });
@@ -51,14 +51,14 @@ export default class AddListItems extends React.Component {
                     { label }
                 </span>
 
-                <span className={ classNameChange }>
-                
+                <span className={ classNameChange }>               
                     <form className="cange-label-add"
                           onSubmit={ this.onSubmit }>
                         <input type="text"
                                className="cange-label-form-control"
                                onChange={this.taskLabelChange}
-                               placeholder="Write a new task" 
+                               placeholder="Write a new task"
+                               value={this.state.label}
                                />
                             <button className="btn">CHANGE</button>
                     </form>
