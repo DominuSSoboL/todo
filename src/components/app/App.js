@@ -10,11 +10,23 @@ export default class App extends Component {
 
   maxId = 100;
   labelChangeIdx = '';
+
   state = {
     todos: [
+      {
+        title: 'Fore home',
+        todosId: 0,
+        tasks: [
+          { label: 'Drink coffee', id: 1 },
+          { label: 'Make awesome App', id: 2 },
+          { label: 'Kiss Julia', id: 3 },
+          { label: 'Get sleep', id: 4 }
+        ]
+      }
     ]
   };
   
+
   taskLabelChange = (e) => {
     this.setState({
       label: e.target.value
