@@ -4,7 +4,7 @@ import './add-todos.css';
 import TasksList from '../add-tasks';
 
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, createTodos }) => {
 
       const elements = todos.map((item) => {
         const { todosId, title, tasks } = item;
@@ -20,9 +20,17 @@ const Todos = ({ todos }) => {
       });
     
       return (
+
         <div className="col-12 todos">
           { elements }
+          <div className="col-12 todos-add">
+            <button 
+                    onClick={ createTodos }>
+              <i className=""></i>Add TODO List 
+            </button>
+          </div>
         </div>
+        
       );
 };
 

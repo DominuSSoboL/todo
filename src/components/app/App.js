@@ -18,42 +18,29 @@ export default class App extends Component {
           { label: 'Kiss Julia', id: 3 },
           { label: 'Get sleep', id: 4 }
         ]
-      },
-      {
-        title: 'Fore work',
-        todosId: 1,
-        tasks: [
-          { label: 'Drink tea', id: 1 },
-          { label: 'End other works', id: 2 },
-          { label: 'Call Tulpan', id: 3 },
-          { label: 'End seminary site', id: 4 }
-        ]
-      }
-    ]
+      }    ]
   };
-
-  
   //Create new todos
   createTodos = () => {
-    this.setState(({ todos }) => {
-      // const oldTodos = todos.slice(0, this.state.todos.length);
+    this.setState (({ todos }) => {
+      const oldTodos = todos.slice(0, this.state.todos.length);
 
-      // const createTodos = {
-      //   title: 'New todos', 
-      //   todosId: 3,
-      //   tasks: [
-      //     { label: 'New task one', id: 1 },
-      //     { label: 'New task two', id: 2 }
-      //   ]
-      // };
+      const createTodos = {
+        title: 'New todos', 
+        todosId: 3,
+        tasks: [
+          { label: 'New task one', id: 1 },
+          { label: 'New task two', id: 2 }
+        ]
+      };
 
-      // const newTodos = [
-      //   ...oldTodos,
-      //   createTodos
-      // ];
-      // return(
-      //   // todos[0].tasks[0].label = 'KMLKEMOEIKMFOWINMEFOIWKMF';
-      // );
+      const newTodos = [
+        ...oldTodos,
+        createTodos
+      ];
+      return {
+        todos: newTodos
+      }
       
     });
   };
@@ -68,13 +55,12 @@ export default class App extends Component {
           <h2>from ruby garage</h2>
         </div>
 
-        <Todos todos={ this.state.todos } />
+        <Todos 
+              todos={ this.state.todos } 
+              createTodos={ this.createTodos }/>
   
-        <div className="col-12 todos-add">
-          <button onClick={ this.createTodos }>
-            <i className=""></i>Add TODO List 
-          </button>
-        </div>
+
+        
   
         <div className="col-12 app-footer">
         </div>
