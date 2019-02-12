@@ -8,12 +8,15 @@ import AppFooter from '../app-footer';
 export default class App extends Component {
 
   maxId = 0;
-  todosId = 0;
+  todosId = 1;
+  todosChangeId: 0;
   state = {
     todos: [
       {
         title: 'Fore work',
-        todosId: this.todosId,
+        todosId: 0,
+        titleTextState: false,
+        formClassState: false,
         tasks: [
           this.createTask('Drink coffe'),
           this.createTask('New task'),
@@ -30,16 +33,19 @@ export default class App extends Component {
 
       const createTodos = {
         title: 'New todos', 
-        todosId: ++this.todosId,
+        todosId: this.todosId++,
+        titleTextState: false,
+        formClassState: false,
         tasks: [
           this.createTask('New task')
         ]
       };
-
+      
       const newTodos = [
-        createTodos,
-        ...oldTodos
+        ...oldTodos,
+        createTodos
       ];
+
       return {
         todos: newTodos
       }
@@ -58,19 +64,82 @@ export default class App extends Component {
       changeMarker: false
     };
   };
+  addNewTask = (id) => {
+    this.setState(({ todos }) => {
+      // const idx = todos.findIndex( (el) => el.todosId === id);
+      // const beforeItems = todos.slice(0, idx);
+      // const afterItems = todos.slice(idx + 1);
+
+      // const oldItem = todos[idx];
+
+      // const newTodo = {
+      //   ...oldItem,
+
+      // }
+      // const newTodos = [
+      //   ...beforeItems,
+      //   newItem,
+      //   ...afterItems
+      // ]
+      // return{
+      //   todos: newTodos
+      // }
+    });
+  }
+  // DELETE TODOS
+  deleteTodos = (id) => {
+    this.setState(({ todos }) => {
+      const idx = todos.findIndex((el) => el.todosId === id );
+      const beforeItems = todos.slice(0, idx);
+      const afterItems = todos.slice(idx + 1);
+      const newTodos = [
+        ...beforeItems,
+        ...afterItems
+      ]
+      console.log(id)
+      return{
+        todos: newTodos
+      }
+
+    });
+  }
+  // SET NEW TITLE TODO LIST
+  setNewTitle = (text) => {
+    this.setState(({ todos }) => {
+      const beforeItems = todos.slice(0, this.todosChangeId);
+      const afterItems = todos.slice(this.todosChangeId + 1);
+      const oldItem = todos[this.todosChangeId];
+      const newItem = { ...oldItem,
+                        title: text,
+                        titleTextState: false,
+                        formClassState: false};
+      const newTodos = [
+        ...beforeItems,
+        newItem,
+        ...afterItems
+      ]
+      return{
+        todos: newTodos
+      }
+
+    });
+  };
   // CHANGE TITLE TODO LIST
   chengeTitleTodos = (id) => {
+    this.todosChangeId = id;
     this.setState(({ todos }) => {
-      const beforeItems = todos.slice(0, id);
-      const afterItems = todos.slice(id + 1);
-      const oldItem = todos[id];
-      const newItem = { ...oldItem, title: 'New title'};
-
-      const newTodos = {
+      const idx = todos.findIndex((el) => el.todosId === id );
+      const beforeItems = todos.slice(0, idx);
+      const afterItems = todos.slice(idx + 1);
+      const oldItem = todos[idx];
+      const newItem = { ...oldItem, 
+                        titleTextState: !oldItem.titleTextState,
+                        formClassState: !oldItem.formClassState};
+      const newTodos = [
         ...beforeItems,
-        ...newItem,
+        newItem,
         ...afterItems
-      }
+      ]
       return{
         todos: newTodos
       }
@@ -86,7 +155,9 @@ export default class App extends Component {
         <Todos 
               todos={ this.state.todos } 
               createTodos={ this.createTodos }
-              chengeTitleTodos={ this.chengeTitleTodos }/>
+              chengeTitleTodos={ this.chengeTitleTodos }
+              setNewTitle={ this.setNewTitle }
+              deleteTodos={ this.deleteTodos }/>
         <AppFooter />
         </div>
       </div>

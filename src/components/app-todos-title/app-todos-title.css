@@ -16,9 +16,9 @@
     color: #fff;
     background-color: #4979b5;
 }
-.todos-title:hover {
+/* .todos-title:hover {
     cursor: pointer;
-}
+} */
 /**************************************************************
 *                                                             *
 *                         CALENDART                           *
@@ -47,7 +47,7 @@
     text-align: left;
     color: #fff;
 }
-/* CHANGE EFFECT     */
+/* CHANGE EFFECT*/
 .change-form {
     display: none;
 }
@@ -56,6 +56,66 @@
 }
 .title-hidden {
     display: none;
+}
+/**************************************************************
+*                                                             *
+*                     FORM CHANGE STYLES                      *
+*                                                             *
+**************************************************************/
+/*INPUT STYLES*/
+.todos-title-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.todos-title-form input {
+    width: 79%;
+    margin-left: 2px;
+    padding: 9px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #707070;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+}
+.todos-title-form input:hover,
+.todos-title-form input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #707070;
+}
+.todos-title-form button {
+    width: 14.333333%;
+}
+.todos-title-form button {
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #fff;
+    border: 1px solid #447557;
+    border-radius: 0 2px 2px 0;
+    background-color: #6ca384;
+}
+.todos-title-form button:hover,
+.todos-title-form button:focus {
+    background-color: #5e8d73;
+    color: #ececec;
+    box-shadow: none;
+    outline: none;
+}
+/* CHANGE EFFECT*/
+.todos-title-text.todos-title-text-hidden span.title {
+    display: none;
+}
+.todos-title-form {
+    display: none;
+}
+.todos-title-form.todos-title-text-show {
+    display: block;
+    display: flex;
 }
 /**************************************************************
 *                                                             *

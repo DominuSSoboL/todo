@@ -7,17 +7,23 @@ import TasksList from '../app-todos-list';
 import AppTodoAdd from '../app-todos-add/';
 
 
-const Todos = ({ todos, createTodos, chengeTitleTodos }) => {
+const Todos = ({ todos, createTodos, chengeTitleTodos, setNewTitle, deleteTodos, addNewTask }) => {
 
-      const elements = todos.map((item) => {
-        const { todosId, title, tasks } = item;
-    
+      const elements = todos.map(( item ) => {
+        
+        const { todosId, title, tasks, titleTextState, formClassState } = item;
+        
         return (
             <div key={ todosId }>
                 <AppTodosTitle 
-                    title={title}
-                    chengeTitleTodos={ () => {chengeTitleTodos(todosId)} }/>
-                <TaskAddForm />
+                    titleTextState={ titleTextState }
+                    formClassState={ formClassState }
+                    title={ title }
+                    setNewTitle={ setNewTitle }
+                    chengeTitleTodos={ () => { chengeTitleTodos(todosId) } }
+                    deleteTodos={ () => { deleteTodos(todosId) } } />
+                <TaskAddForm 
+                    addNewTask={ () => { addNewTask(todosId) } }/>
                 <TasksList tasks={ tasks } />
             </div>
         );
