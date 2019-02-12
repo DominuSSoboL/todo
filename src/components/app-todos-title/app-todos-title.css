@@ -1,0 +1,106 @@
+/**************************************************************
+*                                                             *
+*                      PROJECT TITLE                          *
+*                                                             *
+**************************************************************/
+.todos-title {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+
+    padding: 16px 0 16px 40px ;
+    font-size: 19px;
+    /* line-height: 19px; */
+
+    color: #fff;
+    background-color: #4979b5;
+}
+.todos-title:hover {
+    cursor: pointer;
+}
+/**************************************************************
+*                                                             *
+*                         CALENDART                           *
+*                                                             *
+**************************************************************/
+.todos-title-icon-calendar {
+    width: 5%;
+    height: 100%;
+}
+.todos-title-icon-calendar i {
+    font-size: 30px;
+    line-height: 38px;
+    color: rgba(0,0,0,0.5);
+}
+/**************************************************************
+*                                                             *
+*                           TITLE                             *
+*                                                             *
+**************************************************************/
+.todos-title-text {
+    width: 80%;
+    padding: 0 10px;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 38px;
+    text-align: left;
+    color: #fff;
+}
+/* CHANGE EFFECT     */
+.change-form {
+    display: none;
+}
+.change-form-active {
+    display: block;
+}
+.title-hidden {
+    display: none;
+}
+/**************************************************************
+*                                                             *
+*                          BUTTONS                            *
+*                                                             *
+**************************************************************/
+.todos-title-buttons {
+    width: 15%;
+    text-align: right;
+    padding-right: 15px;
+}
+.todos-title-buttons button {
+    width: 50%;
+    box-sizing: border-box;
+}
+.todos-title-buttons button:first-child {
+    padding: 0;
+}
+.todos-title-buttons button:first-child {
+    border-right: 2px solid rgba(255,255,255,0.3);
+    border-radius: 0;
+}
+.todos-title-buttons button:not(:first-child) {
+    position: relative; 
+    padding: 0;
+}
+.todos-title-buttons button i {
+    font-size: 20px;
+    line-height: 38px;
+    color: rgba(255,255,255,0.6);
+}
+.todos-title-buttons button i:hover {
+    color: rgba(255,255,255,0.9);
+    transition: 0.3s;
+}
+/* HOVER EFFECT */
+.todos-title .todos-title-buttons {
+    opacity: 0;
+}
+.todos-title:hover > .todos-title-buttons {
+    opacity: 1;
+    transition: 0.3s;
+}
+.todos-title-buttons button.btn:hover,
+.todos-title-buttons button.btn:focus {
+    outline: none;
+    box-shadow: none;
+}

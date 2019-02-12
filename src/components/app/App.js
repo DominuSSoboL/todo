@@ -1,42 +1,44 @@
 import React, { Component } from 'react';
 import './app.css';
 
-import Todos from '../add-todos';
+import AppHeader from '../app-header';
+import Todos from '../app-todos';
+import AppFooter from '../app-footer';
 
 export default class App extends Component {
 
-  startIndexTodos = 3;
-
+  maxId = 0;
+  todosId = 0;
   state = {
     todos: [
       {
-        title: 'Fore home',
-        todosId: 0,
+        title: 'Fore work',
+        todosId: this.todosId,
         tasks: [
-          { label: 'Drink coffee', id: 1 },
-          { label: 'Make awesome App', id: 2 },
-          { label: 'Kiss Julia', id: 3 },
-          { label: 'Get sleep', id: 4 }
+          this.createTask('Drink coffe'),
+          this.createTask('New task'),
+          this.createTask('Make  Kiss'),
+          this.createTask('Make awesome May')
         ]
-      }    ]
+      }
+    ]
   };
-  //Create new todos
+  // CREATE TODO LIST
   createTodos = () => {
     this.setState (({ todos }) => {
       const oldTodos = todos.slice(0, this.state.todos.length);
 
       const createTodos = {
         title: 'New todos', 
-        todosId: 3,
+        todosId: ++this.todosId,
         tasks: [
-          { label: 'New task one', id: 1 },
-          { label: 'New task two', id: 2 }
+          this.createTask('New task')
         ]
       };
 
       const newTodos = [
-        ...oldTodos,
-        createTodos
+        createTodos,
+        ...oldTodos
       ];
       return {
         todos: newTodos
@@ -44,58 +46,50 @@ export default class App extends Component {
       
     });
   };
+  // CREATE TASK
+  createTask( label ) {
+    return {
+      label,
+      import: false,
+      id: this.maxId++,
+      done: false,
+      inputChange: false,
+      hiddenLabel: false,
+      changeMarker: false
+    };
+  };
+  // CHANGE TITLE TODO LIST
+  chengeTitleTodos = (id) => {
+    this.setState(({ todos }) => {
+      const beforeItems = todos.slice(0, id);
+      const afterItems = todos.slice(id + 1);
+      const oldItem = todos[id];
+      const newItem = { ...oldItem, title: 'New title'};
+
+      const newTodos = {
+        ...beforeItems,
+        ...newItem,
+        ...afterItems
+      }
+      return{
+        todos: newTodos
+      }
+
+    });
+  };
 
   render(){
     return (
       <div className="container">
         <div className="row">
-  
-        <div className="col-12 app-tile">
-          <h1>Simple todo lists</h1>
-          <h2>from ruby garage</h2>
-        </div>
-
+        <AppHeader />
         <Todos 
               todos={ this.state.todos } 
-              createTodos={ this.createTodos }/>
-  
-
-        
-  
-        <div className="col-12 app-footer">
-        </div>
-  
+              createTodos={ this.createTodos }
+              chengeTitleTodos={ this.chengeTitleTodos }/>
+        <AppFooter />
         </div>
       </div>
     );
   };
-};
-
-
-
-
- // <div className="col-12 todos">
-        //   <div className="todos-title">
-        //     { this.state.todos[0].title }
-        //   </div>
-        //   <div className="todos-add-task">Start typing here to create a task...</div>
-        //   <ul>
-        //     <li>{ this.state.todos[0].tasks[0].label }</li>
-        //     <li>{ this.state.todos[0].tasks[1].label }</li>
-        //     <li>{ this.state.todos[0].tasks[2].label }</li>
-        //     <li>{ this.state.todos[0].tasks[3].label }</li>
-        //   </ul>
-        // </div>
-  
-        // <div className="col-12 todos">
-        //   <div className="todos-title">
-        //     { this.state.todos[1].title }
-        //   </div>
-        //   <div className="todos-add-task">Start typing here to create a task...</div>
-        //   <ul>
-        //     <li>{ this.state.todos[1].tasks[0].label }</li>
-        //     <li>{ this.state.todos[1].tasks[1].label }</li>
-        //     <li>{ this.state.todos[1].tasks[2].label }</li>
-        //     <li>{ this.state.todos[1].tasks[3].label }</li>
-        //   </ul>
-        // </div>
+}
