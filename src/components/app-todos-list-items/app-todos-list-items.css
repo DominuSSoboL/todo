@@ -1,0 +1,154 @@
+/**************************************************************
+*                                                             *
+*                     LIST ITEM STYLE                         *
+*                                                             *
+**************************************************************/
+.list-items-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0px 0px 0px 40px;
+}
+.list-items-box span {
+    padding: 18px 0;
+}
+.list-items-box:hover {
+    background-color: #fcfed5;
+    transition: all 0.3s;
+}
+/**************************************************************
+*                                                             *
+*                     CHECK BOX STYLE                         *
+*                                                             *
+**************************************************************/
+.list-items-checkbox {
+    width: 5%;
+    border-right: 1px solid #efdadf;
+}
+.checkbox {
+    transform: scale(2);
+    cursor: pointer;
+}
+/**************************************************************
+*                                                             *
+*                    ITEMS TEXT SECTION                       *
+*                                                             *
+**************************************************************/
+.list-items-box span.items-label {
+    width: 70%;
+    padding: 0 10px;
+    font-size: 20px;
+    text-align: left;
+    color: #999999;
+}
+
+.list-items-box span.items-label.done {
+    text-decoration: line-through;
+}
+/**************************************************************
+*                                                             *
+*                   ITEMS INPUT SECTION                       *
+*                                                             *
+**************************************************************/
+
+/** Label **/
+.list-items-box span.cange-label {
+    width: 70%;
+    display: none;
+}
+
+/** Form section **/
+.list-items-box span.cange-label.cange-label-active {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+/** Form **/
+.cange-label-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/** Input **/
+.list-items-box span.cange-label input {
+    
+    width: 80%;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 400;
+    outline: none;
+}
+.list-items-box span.cange-label input:hover,
+.list-items-box span.cange-label input:active {
+    outline: none;
+}
+/** Button **/
+.list-items-box span.cange-label button {
+    width: 20%;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #fff;
+    border: 1px solid #447557;
+    border-radius: 0 2px 2px 0;
+    background-color: #6ca384;
+}
+.list-items-box span.cange-label button:hover,
+.list-items-box span.cange-label button:active {
+    outline: none;
+}
+/** Show input form **/
+.list-items-box span.items-label.items-label-hidden {
+    display: none;
+}
+.cange-label-active {
+    display: block;
+}
+/**************************************************************
+*                                                             *
+*                   ITEMS BUTTON SECTION                      *
+*                                                             *
+**************************************************************/
+.button-item-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    border-left: 1px solid #e7ebea;
+}
+.btn-item-sm {
+    position: relative;
+    width: 33%;
+    padding: 0;
+    opacity: 0;
+    box-sizing: border-box;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+.change-item,
+.delete-item {
+    border-left: 2px solid rgba(0,0,0,0.2);
+}
+.btn-item-sm:hover i {
+    color: rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
+.btn-item-sm i {
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.4);
+}
+.btn-item-sm i:hover {
+    color: rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
+/** SHOW BUTTONS WHEN HOVER ITEM **/
+.list-items-box:hover .btn-item-sm,
+.list-items-box:focus .btn-item-sm {
+    opacity: 1;
+    box-shadow: none;
+    transition: all 0.3s;
+}

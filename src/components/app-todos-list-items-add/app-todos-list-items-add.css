@@ -1,0 +1,73 @@
+/**************************************************************
+*                                                             *
+*                       ADD PROJECT                           *
+*                                                             *
+**************************************************************/
+.project-task-add {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 11px 0px 11px 40px;
+    background-color: #d0d0d0;
+    border: 1px solid #aaaaaa;
+}
+
+/**************************************************************
+*                                                             *
+*                         ICON SECTION                        *
+*                                                             *
+**************************************************************/
+
+.project-task-add span {
+    width: 6%;
+}
+.project-task-add span i {
+    font-size: 30px;
+    line-height: 38px;
+    color: #589072;
+}
+
+/**************************************************************
+*                                                             *
+*                        ADD SECTION                          *
+*                                                             *
+**************************************************************/
+.project-task-add input {
+    width: 73%;
+    padding: 9px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #707070;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+}
+.project-task-add input:hover,
+.project-task-add input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #707070;
+}
+/*BUTTON*/
+.project-task-add span:last-child {
+    width: 21%;
+}
+.project-task-add button {
+    width: 83%;
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #fff;
+    border: 1px solid #447557;
+    border-radius: 0 2px 2px 0;
+    background-color: #6ca384;
+}
+.project-task-add button:hover,
+.project-task-add button:focus {
+    background-color: #5e8d73;
+    color: #ececec;
+    box-shadow: none;
+    outline: none;
+}

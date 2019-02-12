@@ -1,0 +1,31 @@
+/**************************************************************
+*                                                             *
+*                         ADD TODOS                           *
+*                                                             *
+**************************************************************/
+.todos-add {
+    text-align: center;
+}
+.btn-todos-add {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 5px 9px;
+    color: #fff;
+    border: 1px solid #315589;
+    background-color: #466eae;
+}
+.btn-todos-add:focus,
+.btn-todos-add:active {
+    outline: none;
+    box-shadow: none;
+}
+.btn-todos-add:hover {
+    background-color: #4c7cbb;
+    color: #fff;
+}
+.btn-todos-add i {
+    font-size: 24px;
+    line-height: 10px;
+    margin-right: 10px;
+    color: #364e76;
+}

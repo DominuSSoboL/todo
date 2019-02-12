@@ -1,0 +1,18 @@
+/**************************************************************
+*                                                             *
+*                     APP HEADER STYLES                       *
+*                                                             *
+**************************************************************/
+.app-header {
+    margin: 60px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.app-header h1 {
+    font-size: 46px;
+    font-weight: 700;
+}
+.app-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
