@@ -4,7 +4,7 @@ import './app-todos-list-items-add.css';
 export default class TaskAddForm extends Component {
     
   state = { 
-    title: this.props.title,
+    title: '',
     titleForm: false,
     titleState: false
   }
@@ -17,15 +17,15 @@ export default class TaskAddForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.takeId();
-    this.props.addNewTaskTitle(this.state.title);
-    // if(this.state.title){
-    //   this.props.addNewTask(this.state.title);
-    // } else{
-    //   this.props.addNewTask('New task');
-    // }
-    // this.setState({
-    //   title: this.state.title ? this.state.title : this.props.title
-    // });
+    //this.props.addNewTaskTitle(this.state.title);
+    if(this.state.title){
+      this.props.addNewTaskTitle(this.state.title);
+    } else{
+      this.props.addNewTaskTitle('New task');
+    }
+    this.setState({
+      title: ''
+    });
   };
     
   render(){
@@ -39,7 +39,7 @@ export default class TaskAddForm extends Component {
                className="form-control"
                onChange={ this.getNewTask }
                placeholder="Start typing here to create task..." 
-               value={ this.state.label }/>
+               value={ this.state.title }/>
         <span>
           <button className="btn">Add Task</button>
         </span>

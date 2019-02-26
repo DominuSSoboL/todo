@@ -148,31 +148,30 @@ export default class App extends Component {
     });
   };
   // ADD TASK
-  addNewTaskCurrentID(id){
-    // this.todosChangeId = id;
-    console.log(id)
+  addNewTaskCurrentID = (id) => {
+    this.todosChangeId = id;
   };
-  addNewTask(text){ 
-    console.log(text)
-    // this.setState(({ todos }) => {
-    //   const idx = todos.findIndex((el) => el.todosId === this.todosChangeId );
+  addNewTask = (text) => { 
+    this.setState(({ todos }) => {
+      const idx = todos.findIndex((el) => el.todosId === this.todosChangeId );
 
-    //   const beforeItems = todos.slice(0, idx);
-    //   const afterItems = todos.slice(idx + 1);
+      const beforeItems = todos.slice(0, idx);
+      const afterItems = todos.slice(idx + 1);
+      const oldItem = todos[idx];
+      const newTask = this.createTask( text );
 
+      oldItem.tasks.push(newTask)
 
-    //   const oldItem = todos[idx];
-    //   const newItem = { ...oldItem, title:  text};
-    //   const newTodos = [
-    //     ...beforeItems,
-    //     newItem,
-    //     ...afterItems
-    //   ]
-    //   return{
-    //     todos: newTodos
-    //   }
+      const newTodos = [
+        ...beforeItems,
+        oldItem,
+        ...afterItems
+      ]
+      return{
+        todos: newTodos
+      }
 
-    // });
+    });
   };
 
 
