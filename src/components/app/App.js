@@ -7,7 +7,7 @@ import AppFooter from '../app-footer';
 
 export default class App extends Component {
 
-  maxId = 0;
+  maxId = 1;
   todosId = 1;
   todosChangeId: 0;
   state = {
@@ -26,6 +26,7 @@ export default class App extends Component {
       }
     ]
   };
+
   // CREATE TODO LIST
   createTodos = () => {
     this.setState (({ todos }) => {
@@ -90,13 +91,13 @@ export default class App extends Component {
   deleteTodos = (id) => {
     this.setState(({ todos }) => {
       const idx = todos.findIndex((el) => el.todosId === id );
+
       const beforeItems = todos.slice(0, idx);
       const afterItems = todos.slice(idx + 1);
       const newTodos = [
         ...beforeItems,
         ...afterItems
       ]
-      console.log(id)
       return{
         todos: newTodos
       }
@@ -106,9 +107,10 @@ export default class App extends Component {
   // SET NEW TITLE TODO LIST
   setNewTitle = (text) => {
     this.setState(({ todos }) => {
-      const beforeItems = todos.slice(0, this.todosChangeId);
-      const afterItems = todos.slice(this.todosChangeId + 1);
-      const oldItem = todos[this.todosChangeId];
+      const idx = todos.findIndex((el) => el.todosId === this.todosChangeId );
+      const beforeItems = todos.slice(0, idx);
+      const afterItems = todos.slice(idx + 1);
+      const oldItem = todos[idx];
       const newItem = { ...oldItem,
                         title: text,
                         titleTextState: false,
