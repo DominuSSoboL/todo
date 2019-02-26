@@ -7,7 +7,7 @@ import TasksList from '../app-todos-list';
 import AppTodoAdd from '../app-todos-add/';
 
 
-const Todos = ({ todos, createTodos, chengeTitleTodos, setNewTitle, deleteTodos, addNewTask }) => {
+const Todos = ({ todos, createTodos, addNewTaskCurrentID, chengeTitleTodos, setNewTitle, deleteTodos, addNewTask }) => {
 
       const elements = todos.map(( item ) => {
         
@@ -23,7 +23,8 @@ const Todos = ({ todos, createTodos, chengeTitleTodos, setNewTitle, deleteTodos,
                     chengeTitleTodos={ () => { chengeTitleTodos(todosId) } }
                     deleteTodos={ () => { deleteTodos(todosId) } } />
                 <TaskAddForm 
-                    addNewTask={ () => { addNewTask(todosId) } }/>
+                    takeId ={ () => { addNewTaskCurrentID(todosId) }  }
+                    addNewTaskTitle={ addNewTask }/>
                 <TasksList tasks={ tasks } />
             </div>
         );

@@ -9,7 +9,7 @@ export default class App extends Component {
 
   maxId = 1;
   todosId = 1;
-  todosChangeId: 0;
+  todosChangeId = 0;
   state = {
     todos: [
       {
@@ -19,9 +19,8 @@ export default class App extends Component {
         formClassState: false,
         tasks: [
           this.createTask('Drink coffe'),
-          this.createTask('New task'),
-          this.createTask('Make  Kiss'),
-          this.createTask('Make awesome May')
+          this.createTask('Make awesome app'),
+          this.createTask('Make drink tee')
         ]
       }
     ]
@@ -148,6 +147,34 @@ export default class App extends Component {
 
     });
   };
+  // ADD TASK
+  addNewTaskCurrentID(id){
+    // this.todosChangeId = id;
+    console.log(id)
+  };
+  addNewTask(text){ 
+    console.log(text)
+    // this.setState(({ todos }) => {
+    //   const idx = todos.findIndex((el) => el.todosId === this.todosChangeId );
+
+    //   const beforeItems = todos.slice(0, idx);
+    //   const afterItems = todos.slice(idx + 1);
+
+
+    //   const oldItem = todos[idx];
+    //   const newItem = { ...oldItem, title:  text};
+    //   const newTodos = [
+    //     ...beforeItems,
+    //     newItem,
+    //     ...afterItems
+    //   ]
+    //   return{
+    //     todos: newTodos
+    //   }
+
+    // });
+  };
+
 
   render(){
     return (
@@ -158,6 +185,8 @@ export default class App extends Component {
               todos={ this.state.todos } 
               createTodos={ this.createTodos }
               chengeTitleTodos={ this.chengeTitleTodos }
+              addNewTaskCurrentID={ this.addNewTaskCurrentID }
+              addNewTask={ this.addNewTask }
               setNewTitle={ this.setNewTitle }
               deleteTodos={ this.deleteTodos }/>
         <AppFooter />

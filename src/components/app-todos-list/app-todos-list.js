@@ -1,11 +1,10 @@
 import React from 'react';
 import './app-todos-list.css';
-
 import AppTodosListItem from '../app-todos-list-items';
+
 const TasksItem = ( {tasks} ) => {
    
-    const tasksList = tasks.map((item) => {
-        
+    const tasksList = tasks.map((item) => {        
         const { id, label } = item;
         return (
             <li key={ id }

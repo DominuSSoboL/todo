@@ -58,7 +58,7 @@ export default class AppTodosTitle extends Component {
                         <input type="text"
                                className="form-control"
                                onChange={ this.onLabelInputChange }
-                               placeholder={ this.state.title } 
+                               placeholder={ this.state.title }
                                value={ this.state.title }>
                         </input>
                         <button className="btn">CHANGE</button>

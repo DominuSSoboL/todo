@@ -8,23 +8,24 @@ export default class TaskAddForm extends Component {
     titleForm: false,
     titleState: false
   }
-    
-  taskLabelChange = (e) => {    
+  // ADD TASK
+  getNewTask = (e) => {
     this.setState({
       title: e.target.value
     });
   };
   onSubmit = (e) => {
     e.preventDefault();
-    if(this.state.title){
-      this.props.addNewTask(this.state.title);
-    } else{
-      this.props.addNewTask(this.props.title);
-    }
-    
-    this.setState({
-      title: this.state.title ? this.state.title : this.props.title
-    });
+    this.props.takeId();
+    this.props.addNewTaskTitle(this.state.title);
+    // if(this.state.title){
+    //   this.props.addNewTask(this.state.title);
+    // } else{
+    //   this.props.addNewTask('New task');
+    // }
+    // this.setState({
+    //   title: this.state.title ? this.state.title : this.props.title
+    // });
   };
     
   render(){
@@ -36,7 +37,7 @@ export default class TaskAddForm extends Component {
         </span>
         <input type="text"
                className="form-control"
-               onChange={ this.taskLabelChange }
+               onChange={ this.getNewTask }
                placeholder="Start typing here to create task..." 
                value={ this.state.label }/>
         <span>
