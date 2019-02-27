@@ -64,28 +64,6 @@ export default class App extends Component {
       changeMarker: false
     };
   };
-  addNewTask = (id) => {
-    this.setState(({ todos }) => {
-      // const idx = todos.findIndex( (el) => el.todosId === id);
-      // const beforeItems = todos.slice(0, idx);
-      // const afterItems = todos.slice(idx + 1);
-
-      // const oldItem = todos[idx];
-
-      // const newTodo = {
-      //   ...oldItem,
-
-      // }
-      // const newTodos = [
-      //   ...beforeItems,
-      //   newItem,
-      //   ...afterItems
-      // ]
-      // return{
-      //   todos: newTodos
-      // }
-    });
-  };
   // DELETE TODOS
   deleteTodos = (id) => {
     this.setState(({ todos }) => {
@@ -176,7 +154,7 @@ export default class App extends Component {
   //DELETE ID
   getDeleteTodosTaskId = (id) => {
     this.todosChangeId = id;
-  }
+  };
   getDeleteTaskId = (id) => {   
     this.setState(({ todos }) => {
       const idxTD = todos.findIndex((el) => el.todosId === this.todosChangeId );
@@ -205,7 +183,45 @@ export default class App extends Component {
         todos: newTodos
       }
     });
-  }
+  };
+  // MARK A DONE TASK
+  onToggleMarkIDTodo = (id) => {
+    this.todosChangeId = id;
+  };
+  onToggleMarkIDTask = (id) => {
+    this.setState(({ todos }) => {
+      const idxTD = todos.findIndex((el) => el.todosId === this.todosChangeId );
+      const idxTK = todos[idxTD].tasks.findIndex((el) => el.id === id );
+      
+      const beforeTodos = todos.slice(0, idxTD);
+      const afterTodos = todos.slice(idxTD + 1);
+
+      const currentTodos = todos[idxTD];
+      const cloneCurrentTodos = {...currentTodos};
+
+      const beforeTask = cloneCurrentTodos.tasks.slice(0, idxTK);
+      const afterTask = cloneCurrentTodos.tasks.slice(idxTK + 1);
+      const currentTask = currentTodos.tasks[idxTK];
+
+
+      const newTask = {...currentTask, done: !currentTask.done }
+      
+      cloneCurrentTodos.tasks = [
+        ...beforeTask,
+        newTask,
+        ...afterTask
+      ]
+
+      const newTodos = [
+        ...beforeTodos,
+        cloneCurrentTodos,
+        ...afterTodos
+      ]
+      return {
+        todos: newTodos
+      }
+    });
+  };
 
   render(){
     return (
@@ -221,7 +237,9 @@ export default class App extends Component {
               setNewTitle={ this.setNewTitle }
               deleteTodos={ this.deleteTodos }
               getDeleteTodosTaskId={ this.getDeleteTodosTaskId }
-              getDeleteTaskId={ this.getDeleteTaskId }/>
+              getDeleteTaskId={ this.getDeleteTaskId }
+              onToggleMarkIDTodo={ this.onToggleMarkIDTodo }
+              onToggleMarkIDTask={ this.onToggleMarkIDTask } />
         <AppFooter />
         </div>
       </div>

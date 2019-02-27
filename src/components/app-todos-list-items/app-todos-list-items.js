@@ -25,13 +25,16 @@ export default class AppTodosListItem extends Component {
     onDeleted = () => {
         this.props.getDeleteTodosTaskId();
         this.props.getDeleteTaskId();
-    }
-
+    };
+    // MARK A DONE TASK
+    onToggleMark = () => {
+        this.props.onToggleMarkIDTodo();
+        this.props.onToggleMarkIDTask();
+    };
     render() {
 
         const { label,
-                openChangeTask, 
-                onToggleMark, 
+                openChangeTask,
                 done,
                 cangeLabelActive,
                 hoverLabel } = this.props;
@@ -39,9 +42,9 @@ export default class AppTodosListItem extends Component {
         let classNameDone = 'items-label';
         let classNameChange = 'cange-label';
         let classNameIconChange = 'icon-pencil';
-
+        
         if (done) { classNameDone += ' done'; }
-        if (cangeLabelActive) { classNameChange += ' cange-label-active';classNameIconChange = 'icon-cross'; }
+        if (cangeLabelActive) { classNameChange += ' cange-label-active'; classNameIconChange = 'icon-cross'; }
         if (hoverLabel) { classNameDone += ' items-label-hidden'; }
 
         return (
@@ -50,7 +53,7 @@ export default class AppTodosListItem extends Component {
                 <span className="list-items-checkbox">
                     <input type="checkbox"
                            className="checkbox"
-                           onClick={ onToggleMark } />
+                           onClick={ this.onToggleMark } />
                 </span>
     
                 <span className={ classNameDone }>

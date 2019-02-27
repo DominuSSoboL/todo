@@ -3,7 +3,7 @@ import './app-todos.css';
 
 import AppTodosTitle from '../app-todos-title';
 import TaskAddForm from '../app-todos-list-items-add';
-import TasksList from '../app-todos-list';
+import TasksItem from '../app-todos-list';
 import AppTodoAdd from '../app-todos-add/';
 
 
@@ -15,7 +15,9 @@ const Todos = ({  todos,
                   deleteTodos, 
                   addNewTask,
                   getDeleteTodosTaskId,
-                  getDeleteTaskId }) => {
+                  getDeleteTaskId,
+                  onToggleMarkIDTodo,
+                  onToggleMarkIDTask }) => {
 
       const elements = todos.map(( item ) => {
         
@@ -33,7 +35,9 @@ const Todos = ({  todos,
                 <TaskAddForm 
                     takeId ={ () => { addNewTaskCurrentID(todosId) }  }
                     addNewTaskTitle={ addNewTask }/>
-                <TasksList 
+                <TasksItem
+                    onToggleMarkIDTodo={ () => { onToggleMarkIDTodo(todosId) } }
+                    onToggleMarkIDTask={ onToggleMarkIDTask } 
                     tasks={ tasks } 
                     getDeleteTodosTaskId={ () => { getDeleteTodosTaskId(todosId) } }
                     getDeleteTaskId={ getDeleteTaskId }/>
