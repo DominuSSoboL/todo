@@ -10,6 +10,7 @@ export default class App extends Component {
   maxId = 1;
   todosId = 1;
   todosChangeId = 0;
+  changeLabelTaskId = 0;
   state = {
     todos: [
       {
@@ -60,7 +61,7 @@ export default class App extends Component {
       id: this.maxId++,
       done: false,
       inputChange: false,
-      hiddenLabel: false,
+      cangeLabelActive: false,
       changeMarker: false
     };
   };
@@ -151,7 +152,101 @@ export default class App extends Component {
 
     });
   };
-  //DELETE ID
+  // CHANGE TITLE TASK
+  openChangeTodoTaskId = (id) => {
+    this.todosChangeId = id;
+  };
+  openChangeTaskId = (id) => {
+    this.changeLabelTaskId = id;
+    this.setState(({ todos }) => {
+      const idxTD = todos.findIndex((el) => el.todosId === this.todosChangeId );
+      const idxTK = todos[idxTD].tasks.findIndex((el) => el.id === id );
+      // Clone state
+      const cloneTodos = todos;
+      const newTodos = [...cloneTodos];
+      // if the form for changeng task is open any where but not here, close form
+      newTodos.map((item) => {
+        item.tasks.map((el) => {
+          if (el.cangeLabelActive !== false && el.id !== id){
+            el.cangeLabelActive = false;
+          }
+        });
+      });
+      // Copy rest todos
+      const beforeTodos = newTodos.slice(0, idxTD);
+      const afterTodos = newTodos.slice(idxTD + 1);
+      // Copy todo
+      const currentTodos = newTodos[idxTD];
+      const cloneCurrentTodos = {...currentTodos};
+     
+      const beforeTask = cloneCurrentTodos.tasks.slice(0, idxTK);
+      const afterTask = cloneCurrentTodos.tasks.slice(idxTK + 1);
+
+      const copyTask = cloneCurrentTodos.tasks[idxTK];
+
+      const newTask = { ...copyTask, cangeLabelActive: !copyTask.cangeLabelActive };
+      const newTasks = [
+        ...beforeTask,
+        newTask,
+        ...afterTask
+      ]
+
+
+      const newTodo = { ...cloneCurrentTodos, tasks: newTasks }
+
+      const newTodosList = [
+        ...beforeTodos,
+        newTodo,
+        ...afterTodos
+      ]
+
+      return {
+        todos: newTodosList
+      }
+    });
+  };
+  setNewLabelTask = (text) => {
+    this.setState(({ todos }) => {
+      const idxTD = todos.findIndex((el) => el.todosId === this.todosChangeId );
+      const idxTK = todos[idxTD].tasks.findIndex((el) => el.id === this.changeLabelTaskId );
+      // Clone state
+      const cloneTodos = todos;
+      const newTodos = [...cloneTodos];
+      // if the form for changeng task is open any where but not here, close form
+      newTodos.map((item) => {
+        item.tasks.map((el) => {
+          if (el.cangeLabelActive !== false){
+            el.cangeLabelActive = false;
+          }
+        });
+      });
+      // Copy rest todos
+      const beforeTodos = newTodos.slice(0, idxTD);
+      const afterTodos = newTodos.slice(idxTD + 1);
+      // Copy todo
+      const currentTodos = newTodos[idxTD];
+      const cloneCurrentTodos = {...currentTodos};     
+      const beforeTask = cloneCurrentTodos.tasks.slice(0, idxTK);
+      const afterTask = cloneCurrentTodos.tasks.slice(idxTK + 1);
+      const copyTask = cloneCurrentTodos.tasks[idxTK];
+      const newTask = { ...copyTask, label: text };
+      const newTasks = [
+        ...beforeTask,
+        newTask,
+        ...afterTask
+      ]
+      const newTodo = { ...cloneCurrentTodos, tasks: newTasks }
+      const newTodosList = [
+        ...beforeTodos,
+        newTodo,
+        ...afterTodos
+      ]
+      return {
+        todos: newTodosList
+      }
+    });
+  };
+  // DELETE TASK
   getDeleteTodosTaskId = (id) => {
     this.todosChangeId = id;
   };
@@ -239,7 +334,10 @@ export default class App extends Component {
               getDeleteTodosTaskId={ this.getDeleteTodosTaskId }
               getDeleteTaskId={ this.getDeleteTaskId }
               onToggleMarkIDTodo={ this.onToggleMarkIDTodo }
-              onToggleMarkIDTask={ this.onToggleMarkIDTask } />
+              onToggleMarkIDTask={ this.onToggleMarkIDTask }
+              openChangeTaskId={ this.openChangeTaskId }
+              openChangeTodoTaskId={ this.openChangeTodoTaskId }
+              setNewLabelTask={ this.setNewLabelTask } />
         <AppFooter />
         </div>
       </div>

@@ -17,11 +17,14 @@ const Todos = ({  todos,
                   getDeleteTodosTaskId,
                   getDeleteTaskId,
                   onToggleMarkIDTodo,
-                  onToggleMarkIDTask }) => {
+                  onToggleMarkIDTask,
+                  openChangeTaskId,
+                  openChangeTodoTaskId,
+                  setNewLabelTask }) => {
 
       const elements = todos.map(( item ) => {
         
-        const { todosId, title, tasks, titleTextState, formClassState } = item;
+        const { todosId, title, tasks, titleTextState, formClassState  } = item;
         
         return (
             <div key={ todosId }>
@@ -36,6 +39,9 @@ const Todos = ({  todos,
                     takeId ={ () => { addNewTaskCurrentID(todosId) }  }
                     addNewTaskTitle={ addNewTask }/>
                 <TasksItem
+                    setNewLabelTask={setNewLabelTask}
+                    openChangeTaskId={ openChangeTaskId }
+                    openChangeTodoTaskId={ () => { openChangeTodoTaskId(todosId) } }
                     onToggleMarkIDTodo={ () => { onToggleMarkIDTodo(todosId) } }
                     onToggleMarkIDTask={ onToggleMarkIDTask } 
                     tasks={ tasks } 

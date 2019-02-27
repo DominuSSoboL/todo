@@ -9,6 +9,10 @@ export default class AppTodosListItem extends Component {
     };
 
     // CHANGE LABEL TASK
+    openChangeTask = () => {
+        this.props.openChangeTodoTaskId();
+        this.props.openChangeTaskId();
+    };
     taskLabelChange = (e) => {
         this.setState({
           label: e.target.value
@@ -16,6 +20,7 @@ export default class AppTodosListItem extends Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
+        this.props.openChangeTodoTaskId();
         this.props.setNewLabelTask(this.state.label);
         this.setState({
             label: this.state.label
@@ -31,21 +36,23 @@ export default class AppTodosListItem extends Component {
         this.props.onToggleMarkIDTodo();
         this.props.onToggleMarkIDTask();
     };
+
     render() {
 
         const { label,
-                openChangeTask,
                 done,
-                cangeLabelActive,
-                hoverLabel } = this.props;
+                cangeLabelActive } = this.props;
 
         let classNameDone = 'items-label';
         let classNameChange = 'cange-label';
         let classNameIconChange = 'icon-pencil';
         
         if (done) { classNameDone += ' done'; }
-        if (cangeLabelActive) { classNameChange += ' cange-label-active'; classNameIconChange = 'icon-cross'; }
-        if (hoverLabel) { classNameDone += ' items-label-hidden'; }
+        if (cangeLabelActive) { 
+            classNameChange += ' cange-label-active'; 
+            classNameIconChange = 'icon-cross'; 
+            classNameDone += ' items-label-hidden';
+        }
 
         return (
             <span className="list-items-box">
@@ -57,7 +64,7 @@ export default class AppTodosListItem extends Component {
                 </span>
     
                 <span className={ classNameDone }>
-                    { label }
+                    { this.state.label }
                 </span>
 
                 <span className={ classNameChange }>               
@@ -66,10 +73,9 @@ export default class AppTodosListItem extends Component {
                         <input type="text"
                                className="cange-label-form-control"
                                onChange={this.taskLabelChange}
-                               placeholder={ label }
-                               value={ this.state.label }
-                               />
-                            <button className="btn">CHANGE</button>
+                               placeholder={ this.state.label }
+                               value={ this.state.label }/>
+                        <button className="btn">CHANGE</button>
                     </form>
                 </span>
     
@@ -81,7 +87,7 @@ export default class AppTodosListItem extends Component {
     
                     <button type="button" 
                             className="btn btn-item-sm change-item"
-                            onClick={ openChangeTask }>
+                            onClick={ this.openChangeTask }>
                         <i className={ classNameIconChange }></i>
                     </button>
     
