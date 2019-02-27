@@ -85,7 +85,7 @@ export default class App extends Component {
       //   todos: newTodos
       // }
     });
-  }
+  };
   // DELETE TODOS
   deleteTodos = (id) => {
     this.setState(({ todos }) => {
@@ -102,7 +102,7 @@ export default class App extends Component {
       }
 
     });
-  }
+  };
   // SET NEW TITLE TODO LIST
   setNewTitle = (text) => {
     this.setState(({ todos }) => {
@@ -147,7 +147,7 @@ export default class App extends Component {
 
     });
   };
-  // ADD TASK
+  // ADD NEW TASK
   addNewTaskCurrentID = (id) => {
     this.todosChangeId = id;
   };
@@ -173,7 +173,39 @@ export default class App extends Component {
 
     });
   };
+  //DELETE ID
+  getDeleteTodosTaskId = (id) => {
+    this.todosChangeId = id;
+  }
+  getDeleteTaskId = (id) => {   
+    this.setState(({ todos }) => {
+      const idxTD = todos.findIndex((el) => el.todosId === this.todosChangeId );
+      const idxTK = todos[idxTD].tasks.findIndex((el) => el.id === id );
+      
+      const beforeTodos = todos.slice(0, idxTD);
+      const currentTodos = todos[idxTD];
+      const cloneCurrentTodos = {...currentTodos};
+      const afterTodos = todos.slice(idxTD + 1);
 
+
+      const beforeTask = cloneCurrentTodos.tasks.slice(0, idxTK);
+      const afterTask = cloneCurrentTodos.tasks.slice(idxTK + 1);
+      
+      cloneCurrentTodos.tasks = [
+        ...beforeTask,
+        ...afterTask
+      ]
+
+      const newTodos = [
+        ...beforeTodos,
+        cloneCurrentTodos,
+        ...afterTodos
+      ]
+      return {
+        todos: newTodos
+      }
+    });
+  }
 
   render(){
     return (
@@ -187,7 +219,9 @@ export default class App extends Component {
               addNewTaskCurrentID={ this.addNewTaskCurrentID }
               addNewTask={ this.addNewTask }
               setNewTitle={ this.setNewTitle }
-              deleteTodos={ this.deleteTodos }/>
+              deleteTodos={ this.deleteTodos }
+              getDeleteTodosTaskId={ this.getDeleteTodosTaskId }
+              getDeleteTaskId={ this.getDeleteTaskId }/>
         <AppFooter />
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './app-todos-list.css';
 import AppTodosListItem from '../app-todos-list-items';
 
-const TasksItem = ( {tasks} ) => {
+const TasksItem = ( {tasks, getDeleteTodosTaskId, getDeleteTaskId} ) => {
    
     const tasksList = tasks.map((item) => {        
         const { id, label } = item;
@@ -10,7 +10,9 @@ const TasksItem = ( {tasks} ) => {
             <li key={ id }
                 className="list-group-item list-group-item">
                 <AppTodosListItem 
-                    label={ label }/>
+                    label={ label }
+                    getDeleteTaskId={ () => { getDeleteTaskId(id) }  }
+                    getDeleteTodosTaskId={ getDeleteTodosTaskId }/>
             </li>
         );
     });

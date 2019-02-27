@@ -7,7 +7,15 @@ import TasksList from '../app-todos-list';
 import AppTodoAdd from '../app-todos-add/';
 
 
-const Todos = ({ todos, createTodos, addNewTaskCurrentID, chengeTitleTodos, setNewTitle, deleteTodos, addNewTask }) => {
+const Todos = ({  todos, 
+                  createTodos, 
+                  addNewTaskCurrentID, 
+                  chengeTitleTodos, 
+                  setNewTitle, 
+                  deleteTodos, 
+                  addNewTask,
+                  getDeleteTodosTaskId,
+                  getDeleteTaskId }) => {
 
       const elements = todos.map(( item ) => {
         
@@ -25,7 +33,10 @@ const Todos = ({ todos, createTodos, addNewTaskCurrentID, chengeTitleTodos, setN
                 <TaskAddForm 
                     takeId ={ () => { addNewTaskCurrentID(todosId) }  }
                     addNewTaskTitle={ addNewTask }/>
-                <TasksList tasks={ tasks } />
+                <TasksList 
+                    tasks={ tasks } 
+                    getDeleteTodosTaskId={ () => { getDeleteTodosTaskId(todosId) } }
+                    getDeleteTaskId={ getDeleteTaskId }/>
             </div>
         );
       });

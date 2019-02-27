@@ -8,6 +8,7 @@ export default class AppTodosListItem extends Component {
         label: this.props.label
     };
 
+    // CHANGE LABEL TASK
     taskLabelChange = (e) => {
         this.setState({
           label: e.target.value
@@ -20,11 +21,15 @@ export default class AppTodosListItem extends Component {
             label: this.state.label
         });
     };
+    // DELETE TASK
+    onDeleted = () => {
+        this.props.getDeleteTodosTaskId();
+        this.props.getDeleteTaskId();
+    }
 
     render() {
 
-        const { label, 
-                onDeleted, 
+        const { label,
                 openChangeTask, 
                 onToggleMark, 
                 done,
@@ -79,7 +84,7 @@ export default class AppTodosListItem extends Component {
     
                     <button type="button" 
                             className="btn btn-item-sm delete-item"
-                            onClick={ onDeleted }>
+                            onClick={ this.onDeleted }>
                         <i className="icon-bin"></i>
                     </button>    
                 </span>
