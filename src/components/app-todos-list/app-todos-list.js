@@ -8,7 +8,7 @@ const TasksItem = ( {tasks, getDeleteTodosTaskId, getDeleteTaskId} ) => {
         const { id, label } = item;
         return (
             <li key={ id }
-                className="list-group-item list-group-item">
+                className="list-group-item">
                 <AppTodosListItem 
                     label={ label }
                     getDeleteTaskId={ () => { getDeleteTaskId(id) }  }
