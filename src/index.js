@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-//import './index.css';
-//import App from './components/app';
-// ReactDOM.render(<App />, document.getElementById('root'));
+import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom'
+import App from './routers/';
 
 import './stylesheets/application.scss';
 
-import TodoListPage from '../src/pages/todo_list_page';
-ReactDOM.render(<TodoListPage />, document.getElementById('root'));
-  
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'))
