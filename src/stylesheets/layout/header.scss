@@ -1,0 +1,20 @@
+.main-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: color(primary-color);
+  color: $light-txt-color;
+}
+.main-header__title {
+
+}
+.main-header__nav {
+  width: 300px;
+}
+.main-header__nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+.main-header__nav-list-item {
+
+}

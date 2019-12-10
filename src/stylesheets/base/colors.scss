@@ -1,8 +1,13 @@
-$color: (
-  body-bg: #ffcc00,
-
+$colors: (
   // Color palette
+  primary-color:        #3f51b5, // craiola
+  dark-primary-color:   #303f9f, // bluie-craiola
+  light-primari-color:  #c5cac9, // periwinkle
+  accent-color:         #7c4dff, // moderate-blue
+  divider-color:        #bdbdbd, // light-gray
 
   // Text color
-  black-primary-text: #343c6a
+  light-text-color:   white,
+  secondary-text-color: #757575,
+  text-color:           #212121,
 );
