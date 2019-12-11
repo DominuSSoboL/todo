@@ -16,9 +16,6 @@ const Header = ({
           <Link to='/login_in'>Войти</Link>
         </li>
         <li className="main-header__nav-list-item">
-          <Link to='/log_out'>Выйти</Link>
-        </li>
-        <li className="main-header__nav-list-item">
           <Link to='/sign_up'>Зарегистрироваться</Link>
         </li>
       </ul>
