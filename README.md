@@ -1,4 +1,4 @@
-## Todo list
+## TODO LIST
 
 Test assignments for Ruby training courses at [RubyGarage](https://rubygarage.org/)
 
